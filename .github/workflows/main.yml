@@ -25,9 +25,8 @@ on:
 
 jobs:
   call-workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call reusable workflow in libraryRepo
-        uses: <username>/libraryRepo/.github/workflows/reusable-workflow.yml@main
-        with:
-          message: "Triggered from clientRepo"
+    uses: karthikeya-chinna/reusable-workflow/.github/workflows/main.yml@main
+    with:
+      message: "Triggered from clientRepo"
+      environment: ${{ github.event.inputs.environment }}
+      version: ${{ github.event.inputs.version }}
