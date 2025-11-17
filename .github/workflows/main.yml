@@ -4,29 +4,30 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Select environment to deployment'
+        description: "Select environment to deployment"
         required: true
-        default: 'dev-sandbox'
+        default: "dev-sandbox"
         type: choice
         options:
-          - 'dev-sandbox'
-          - 'dev2'
-          - 'staging'
-          - 'production'
-          - 'dev'
+          - dev-sandbox
+          - dev2
+          - staging
+          - production
+          - dev
 
       version:
-        description: 'Select version to build'
+        description: "Select version to build"
         required: true
-        default: 'latest'
+        default: "latest"
         type: choice
         options:
-          - 'latest'
+          - latest
 
 jobs:
-  call-bash-test:
-    uses: karthikeya-devops/reusable-workflow/.github/workflows/main.yml@main
-    with:
-      config-path: .github/main.yml
-    # secrets:
-    #   personal_access_token: ${{ secrets.REUSABLE_WORKFLOW_TOKEN }}
+  call-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call reusable workflow in libraryRepo
+        uses: <username>/libraryRepo/.github/workflows/reusable-workflow.yml@main
+        with:
+          message: "Triggered from clientRepo"
