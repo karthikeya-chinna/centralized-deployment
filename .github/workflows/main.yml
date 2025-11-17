@@ -28,5 +28,5 @@ jobs:
     uses: karthikeya-devops/reusable-workflow/.github/workflows/main.yml@main
     with:
       config-path: .github/main.yml
-    secrets:
-      personal_access_token: ${{ secrets.REUSABLE_WORKFLOW_TOKEN }}
+    # secrets:
+    #   personal_access_token: ${{ secrets.REUSABLE_WORKFLOW_TOKEN }}
