@@ -1,0 +1,32 @@
+name: test workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment to deployment'
+        required: true
+        default: 'dev-sandbox'
+        type: choice
+        options:
+          - 'dev-sandbox'
+          - 'dev2'
+          - 'staging'
+          - 'production'
+          - 'dev'
+
+      version:
+        description: 'Select version to build'
+        required: true
+        default: 'latest'
+        type: choice
+        options:
+          - 'latest'
+
+jobs:
+  call-bash-test:
+    uses: karthikeyabommidi2104/reusable-workflows/.github/workflows/main.yml@main
+    with:
+      config-path: .github/main.yml
+    secrets:
+      personal_access_token: ${{ secrets.REUSABLE_WORKFLOW_TOKEN }}
