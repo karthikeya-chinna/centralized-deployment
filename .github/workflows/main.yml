@@ -30,6 +30,7 @@ permissions:
 jobs:
   call-workflow:
     uses: karthikeya-chinna/reusable-workflow/.github/workflows/main.yml@main
+    secrets: inherit
     with:
       msg: "Hello"
       environment: ${{ inputs.environment }}
