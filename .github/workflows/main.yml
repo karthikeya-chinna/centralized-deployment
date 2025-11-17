@@ -26,5 +26,3 @@ on:
 jobs:
   call-workflow:
     uses: karthikeya-chinna/reusable-workflow/.github/workflows/main.yml@main
-    with:
-      message: "Triggered from clientRepo"
