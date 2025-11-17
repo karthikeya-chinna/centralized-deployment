@@ -23,6 +23,13 @@ on:
         options:
           - latest
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   call-workflow:
     uses: karthikeya-chinna/reusable-workflow/.github/workflows/main.yml@main
+    with:
+      msg: "Hello"
+      environment: ${{ inputs.environment }}
