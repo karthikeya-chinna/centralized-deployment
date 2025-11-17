@@ -25,7 +25,7 @@ on:
 
 jobs:
   call-bash-test:
-    uses: karthikeyabommidi2104/reusable-workflows/.github/workflows/main.yml@main
+    uses: karthikeya-devops/reusable-workflow/.github/workflows/main.yml@main
     with:
       config-path: .github/main.yml
     secrets:
